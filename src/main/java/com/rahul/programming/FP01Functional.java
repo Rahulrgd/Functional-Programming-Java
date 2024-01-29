@@ -21,7 +21,10 @@ public class FP01Functional {
     // printOddNumbersInListFunctional(numbers);
     // printNamesInSeperateLine(names);
     // printOnlyNamesThatContainsSpring(names);
-    printOnlyNamesThatContainsAtLeast4Charaters(names);
+    // printOnlyNamesThatContainsAtLeast6Charaters(names);
+    // printSquareOfEvenNumbersInListFunctional(numbers);
+    // printCubeOfOddNumbersInListFunctional(numbers);
+    printCharaterLengthOfNames(names);
   }
 
   //   private static void print(int number) {
@@ -44,12 +47,30 @@ public class FP01Functional {
       .forEach(System.out::print);
   }
 
+  private static void printSquareOfEvenNumbersInListFunctional(List<Integer> numbers) {
+    numbers
+      .stream()
+      // .filter(FP01Functional::isEven)
+      .filter(number -> number % 2 == 0)
+      .map(number->number*number)
+      .forEach(System.out::println);
+  }
+
   private static void printOddNumbersInListFunctional(List<Integer> numbers) {
     numbers
       .stream()
       // .filter(FP01Functional::isEven)
       .filter(number -> number % 2 != 0)
       .forEach(System.out::print);
+  }
+
+  private static void printCubeOfOddNumbersInListFunctional(List<Integer> numbers) {
+    numbers
+      .stream()
+      // .filter(FP01Functional::isEven)
+      .filter(number -> number % 2 != 0)
+      .map(number->number*number)
+      .forEach(System.out::println);
   }
 
   private static void printNamesInSeperateLine(List<String> names) {
@@ -69,6 +90,15 @@ public class FP01Functional {
     names
       .stream()
       .filter(name -> name.length() > 6)
+      .forEach(System.out::println);
+  }
+
+  private static void printCharaterLengthOfNames(
+    List<String> names
+  ) {
+    names
+      .stream()
+      .map(name->name.length())
       .forEach(System.out::println);
   }
 }
